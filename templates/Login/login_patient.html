@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="/static/login.css">
+</head>
+
+<body>
+
+
+    <div class="main">
+        <div class="intro">
+            <p class="int1">Patient Login</p>
+            <p class="int2">Access your health records securely.</p>
+        </div>
+        <form action="/login/login_patient.html" method="post">
+            <div class="emailpass">
+                <input type="text" id="email" name="email" required placeholder="Email">
+                <input type="password" id="password" name="password" required placeholder="Password">
+                <div class="button-container">
+                    <button type="submit">Sign in</button>
+                </div>
+            </div>
+        </form>
+        <div class="register">
+            <p class="register">Don't have an account? <a href="/login/patient_registration.html">Register</a></p>
+        </div>
+
+    </div>
+
+
+    {% if popup %}
+    <script>
+        alert("{{ popup }}");
+    </script>
+    {% endif %}
+
+
+</body>
+
+</html>

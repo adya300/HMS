@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/templates/Admin_Dashboard/dashboard_1.css">
+</head>
+
+<body>
+
+
+    <div class="main">
+        <nav class="admin-nav">
+            <p>Welcome Admin</p>
+        </nav>
+
+        <!-- ================== Doctors ================== -->
+        <div class="section-header">
+            <p class="section-title">Registered Doctors</p>
+
+            <div class="section-actions">
+                <input type="text" class="search-box" placeholder="Search doctors...">
+                <a class="create-btn" href="/Admin_Dashboard/doc_registration.html">Register</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="scroll-area">
+                {% for doctor in doctors %}
+                <div class="row">
+                    <span class="name">{{ doctor.username }}</span>
+                    <div class="btn">
+                        <a href="/Admin_Dashboard/edit_doc.html?id={{ doctor['id'] }}" class="btn-edit">Edit</a>
+                        <a href="/Admin_Dashboard/delete?id={{ doctor['id'] }}" class="btn-delete">Delete</a>
+
+                        {% if doctor['is_blacklisted'] == 1 %}
+                        <a href="/Admin_Dashboard/toggle_blacklist?id={{ doctor['id'] }}" class="btn-blacklist">
+                            Unblacklist
+                        </a>
+                        {% else %}
+                        <a href="/Admin_Dashboard/toggle_blacklist?id={{ doctor['id'] }}" class="btn-blacklist">
+                            Blacklist
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <!-- ================== Patients ================== -->
+        <div class="section-header">
+            <p class="section-title">Registered Patients</p>
+
+            <div class="section-actions">
+                <input type="text" class="search-box" placeholder="Search patients...">
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="scroll-area">
+                {% for patient in patients %}
+                <div class="row">
+                    <span class="name">{{ patient.username }}</span>
+                    <div class="btn">
+                        <a href="/Admin_Dashboard/edit_pat.html?id={{ patient['id'] }}" class="btn-edit">Edit</a>
+                        <a href="/Admin_Dashboard/delete_patient?id={{ patient['id'] }}" class="btn-delete">Delete</a>
+
+                        {% if patient['is_blacklisted'] == 1 %}
+                        <a href="/Admin_Dashboard/toggle_blacklist_patient?id={{ patient['id'] }}"
+                            class="btn-blacklist">Unblacklist</a>
+                        {% else %}
+                        <a href="/Admin_Dashboard/toggle_blacklist_patient?id={{ patient['id'] }}"
+                            class="btn-blacklist">Blacklist</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <!-- ================== Appointments ================== -->
+        <div class="section-header">
+            <p class="section-title">Upcoming Appointments</p>
+            <div class="section-actions">
+                <input type="text" class="search-box" placeholder="Search appointments...">
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="scroll-area">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>Patient Name</th>
+                            <th>Doctor Name</th>
+                            <th>Department</th>
+                            <th>Patient History</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for appt in appointments %}
+                        <tr>
+                            <td>{{ appt.sr_no }}</td>
+                            <td>{{ appt.patient_name }}</td>
+                            <td>{{ appt.doctor_name }}</td>
+                            <td>{{ appt.department }}</td>
+                            <td><button class="btn-view">view</button></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

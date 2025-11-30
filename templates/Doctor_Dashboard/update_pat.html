@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Patient History</title>
+    <link rel="stylesheet" href="/static/registration.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="intro">
+            <p class="int1">Update Treatment Details</p>
+        </div>
+
+        <form action="" method="post">
+            <input type="hidden" name="appointment_id" value="{{ treatment['appointment_id'] if treatment else '' }}">
+
+            <div class="registration">
+
+                <input type="text" id="diagnosis" name="diagnosis" required
+                    value="{{ treatment['diagonosis'] if treatment else '' }}"
+                    placeholder="Enter Diagnosis">
+
+                <input type="text" id="prescription" name="prescription"
+                    value="{{ treatment['prescription'] if treatment else '' }}"
+                    placeholder="Enter Prescription">
+
+                <input type="text" id="medicine" name="medicine" required
+                    value="{{ treatment['medicine'] if treatment else '' }}"
+                    placeholder="Enter Medicines">
+
+                <input type="text" id="test_done" name="test_done" required
+                    value="{{ treatment['test_done'] if treatment else '' }}"
+                    placeholder="Tests Done">
+
+                <input type="text" id="visit_type" name="visit_type" required
+                    value="{{ treatment['visit_type'] if treatment else '' }}"
+                    placeholder="Visit Type (In-person / Online)">
+
+                <div class="button-container">
+                    <button type="submit">Save Changes</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

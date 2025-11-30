@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Epilogue", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background: #f3f4f7;
+    scrollbar-width: none;
+}
+
+.main {
+    margin: 0;
+}
+
+/* NAVBAR -------------------------------------------------------- */
+nav.admin-nav,
+nav.doctor-dash,
+nav.pat-dash {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    background: #1f2937;
+    color: #f9fafb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    height: 10vh;
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.welcome {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* SECTION TITLES ------------------------------------------------ */
+.doc1, .pat1, .appt1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 20px 20px 8px;
+    color: #111827;
+}
+
+/* CONTAINERS ----------------------------------------------------- */
+.doctors, .patients, .appointments {
+    height: 300px;
+    overflow-y: auto;
+    margin: 15px 14px 40px;
+    border-radius: 14px;
+    padding: 18px;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+}
+
+/* LIST ROWS ------------------------------------------------------ */
+.row {
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 14px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    transition: 0.2s ease;
+}
+
+.row:hover {
+    background: #f9fafb;
+    transform: translateY(-2px);
+}
+
+/* NAME TEXT ------------------------------------------------------ */
+.name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* BUTTONS -------------------------------------------------------- */
+a, .create-btn, .btn-view, .btn-delete, .btn-edit, .btn-cancel, .btn-unblacklist, .btn-complete {
+    padding: 10px 17px;
+    background-color: #374151;
+    color: #ffffff;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+a:hover, .create-btn:hover, .btn-view:hover, .btn-delete:hover, 
+.btn-edit:hover, .btn-cancel:hover, .btn-complete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* BUTTON COLORS -------------------------------------------------- */
+.btn-view { background: #2563eb; }
+.btn-edit { background: #d97706; }
+.btn-delete, .btn-cancel { background: #dc2626; }
+.btn-unblacklist, .btn-complete { background: #059669; }
+.create-btn { background: #2563eb; }
+
+.lout { margin-left: auto; }
+
+/* TABLE ---------------------------------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+table th {
+    background: #f3f4f6;
+    font-weight: 700;
+    padding: 14px 12px;
+    color: #374151;
+}
+
+table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #1f2937;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+.appointments table td:last-child,
+.appointments table th:last-child {
+    text-align: right;
+    padding-right: 15px;
+}
+
+/* SECTION HEADER (search + button) ------------------------------- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 12px 10px;
+}
+
+.section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.section-actions {
+    display: flex;
+    gap: 14px;
+}
+
+/* SEARCH BOX ------------------------------------------------------ */
+.search-box {
+    padding: 10px 16px;
+    width: 240px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+    outline: none;
+    transition: 0.25s;
+    background: #ffffff;
+}
+
+.search-box:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 6px rgba(37,99,235,0.3);
+}
+
+/* EXTRA ----------------------------------------------------------- */
+.up-app, .assign_pat {
+    padding-left: 13px;
+}
+.up-app{
+    padding-top: 10px;
+}

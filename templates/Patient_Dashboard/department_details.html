@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments</title>
+    <link rel="stylesheet" href="/static/department.css">
+</head>
+<body>
+    <div class="dash">
+        <div class="welcome">Department of {{ department['name'] }}</div>
+        <div>
+            <a href="/Patient_Dashboard/dashboard.html">Back</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="about">
+        <div class="header">{{ department['name'] }}:</div>
+        <div class="sub-header">
+            {{ department['about'] }}
+        </div>
+        </div>
+        <div class="dot_list">
+        <div class="header" style="font-size:22px; margin-bottom:8px;">Doctors' list</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Doctor</th>
+                    <th>Specialization</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if doctors and doctors|length > 0 %}
+                    {% for doctor in doctors %}
+                    <tr>
+                        <td>Dr. {{ doctor['username'] }}</td>
+                        <td>{{ doctor['specialization'] }}</td>
+                        <td>
+                            <a class="btn" href="{{ url_for('doctor_availability', doctor_id=doctor['doc_id']) }}">Check Availability</a>
+                        </td>
+                        <td>
+                            <a class="btn" href="{{ url_for('doctor_details', doctor_id=doctor['doc_id']) }}">View Details</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="ellipsis">No doctors available</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+
+
+
+</body>
+</html>

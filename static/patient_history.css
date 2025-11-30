@@ -1,0 +1,100 @@
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Epilogue", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #f5f6f8;
+}
+
+/* Top Navbar */
+.dash {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 0 0 14px 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.welcome {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2d2d2d;
+    letter-spacing: 0.5px;
+}
+
+/* Buttons / Links */
+a {
+    padding: 10px 18px;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.25s ease-in-out;
+}
+
+a:hover {
+    background: #ffffff;
+    color: #2d2d2d;
+    box-shadow: 0 3px 8px rgba(60, 60, 60, 0.3);
+}
+
+/* Main Container */
+.container {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1000px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+th, td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+    font-size: 15px;
+    color: #2d2d2d;
+}
+
+th {
+    background: #eef0f3;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+tr:nth-child(even) td {
+    background: #fafbfc;
+}
+
+/* Remove last border */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Empty state */
+.ellipsis {
+    text-align: center;
+    padding: 20px;
+    font-size: 15px;
+    color: #9b9b9b;
+}

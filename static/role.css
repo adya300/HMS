@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gilroy", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #f5f6f8;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Intro text */
+.intro {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.intro > p {
+    margin-left: 15px;
+    font-size: 20px;
+    color: #2d2d2d;
+    font-weight: 500;
+}
+
+/* Role buttons container */
+.roles {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Role buttons */
+a {
+    display: inline-block;
+    padding: 12px 28px;
+    text-decoration: none;
+    color: #2d2d2d;
+    background-color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 25px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease-in-out, transform 0.2s ease;
+    text-align: center;
+}
+
+a:hover {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .roles {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    a {
+        width: 100%;
+    }
+}

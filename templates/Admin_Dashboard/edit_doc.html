@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Details</title>
+    <link rel="stylesheet" href="/static/registration.css">
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="intro">
+            <p class="int1">Update Doctor Information.</p>
+        </div>
+
+        <form action="" method="post">
+            <input type="hidden" name="id" value="{{ doctor['id'] }}">
+
+            <div class="registration">
+
+                <input type="text" id="username" name="username" required value="{{ doctor['username'] }}"
+                    placeholder="{{ doctor['username'] }}">
+
+                <input type="text" id="email" name="email" required value="{{ doctor['email'] }}"
+                    placeholder="{{ doctor['email'] }}">
+
+                <input type="password" id="password" name="password" placeholder="Enter new password (optional)">
+
+                <input type="text" id="specialization" name="specialization" required
+                    value="{{ doctor['specialization'] }}" placeholder="{{ doctor['specialization'] }}">
+
+                <input type="text" id="department" name="department" required value="{{ doctor['department_id'] }}"
+                    placeholder="{{ doctor['department_id'] }}">
+
+                <input type="text" id="about" name="about" required value="{{ doctor['about'] }}"
+                    placeholder="{{ doctor['about'] }}">
+
+
+                <div class="button-container">
+                    <button type="submit">Save Changes</button>
+                </div>
+
+            </div>
+        </form>
+
+
+    </div>
+</body>
+
+</html>

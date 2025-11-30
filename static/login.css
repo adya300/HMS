@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gilroy", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f7f8fa;
+    overflow-y: hidden;
+}
+
+/* Main Card */
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: rgba(240, 248, 255, 0.55);
+    border-radius: 10px;
+    box-shadow: 8px 8px 12px rgba(113, 113, 113, 0.45);
+    width: 320px;
+}
+
+/* Text */
+.int1 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.int2 {
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.description {
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.emailpass {
+    width: 100%;
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+input {
+    width: 100%;
+    height: 38px;
+    padding: 0 10px;
+    background-color: #e9eaea;
+    border: 1px solid #a0a0a0;
+    border-radius: 5px;
+}
+
+#password {
+    margin-bottom: 10px;
+}
+
+input::placeholder {
+    color: rgb(94, 94, 94);
+}
+
+/* Buttons */
+button {
+    width: 55%;
+    height: 32px;
+    margin-top: 8px;
+    background-color: #2d2d2d;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-family: "Epilogue", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: white;
+    color: #2d2d2d;
+    box-shadow: 2px 2px rgb(60, 60, 60);
+}
+
+/* Sign Up Link */
+.register {
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 13px;
+    font-family: "Epilogue", sans-serif;
+}
+
+a {
+    color: #6a6b6c;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Flash Messages */
+.flash-messages p {
+    color: #2d2d2d;
+    padding: 10px;
+    background: #ffe8e8;
+    border-left: 4px solid #ff6b6b;
+    border-radius: 5px;
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    font-weight: bold;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="/static/login.css">
+</head>
+
+<body>
+
+
+    <div class="main">
+        <div class="intro">
+            <p class="int1">Admin Login</p>
+            <p class="int2">Oversee doctors, patients, and appointments seamlessly.</p>
+        </div>
+        <form action="{{ url_for('login_admin') }}" method="post">
+            <div class="emailpass">
+                <input type="text" id="email" name="email" required placeholder="Email">
+                <input type="password" id="password" name="password" required placeholder="Password">
+                <div class="button-container">
+                    <button type="submit">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    {% if popup_message %}
+<script>
+    alert("{{ popup_message }}");
+</script>
+{% endif %}
+
+
+</body>
+
+</html>

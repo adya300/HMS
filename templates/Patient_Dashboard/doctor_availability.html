@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Availability</title>
+    <link rel="stylesheet" href="/static/doctor_availability.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Dr. {{ doctor.username }}</h2>
+        <p>Specialization: {{ doctor.specialization }}</p>
+
+        <form method="POST">
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date" min="{{ today }}" max="{{ max_date }}"
+                value="{{ selected_date or today }}">
+            <button type="submit">Check Slots</button>
+        </form>
+
+        {% if slots %}
+        <h3>Available Slots:</h3>
+        <div class="slots-container">
+            {% for slot in slots %}
+            <form action="/book_appointment" method="POST" style="display:inline;">
+                <input type="hidden" name="doctor_id" value="{{ doctor['doc_id'] }}">
+                <input type="hidden" name="dept" value="{{ doctor['department_id'] }}">
+                <input type="hidden" name="date" value="{{ selected_date }}">
+                <input type="hidden" name="time" value="{{ slot.time }}">
+
+                <button type="submit" onclick="return confirm('Are you sure you want to book this slot?');"
+                    class="slot-btn {% if slot.booked %}booked{% endif %}" {% if slot.booked %}disabled{% endif %}>
+                    {{ slot.time }}
+                </button>
+            </form>
+
+            {% endfor %}
+
+        </div>
+        {% elif selected_date %}
+        <p>No slots available on this date.</p>
+        {% endif %}
+
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('popup')) {
+                alert(urlParams.get('popup'));
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>

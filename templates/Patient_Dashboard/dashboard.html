@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+     <nav class="pat-dash">
+        <p class="welcome">Welcome {{ patient_name }}</p>
+        <div class="nav-links">
+            <a href="/Patient/edit_profile.html">Edit Profile</a>
+            <a href="/Patient_Dashboard/view_patient.html?id={{ p_id }}">History</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="main">
+        <p class="doc1">Departments</p>
+        <div class="doctors">
+            {% for dept in departments %}
+            <div class="row">
+                <div class="name">{{ dept.name }}</div>
+                <a href="/Patient_Dashboard/department_details.html?id={{ dept.dept_id }}">View Details</a>
+            </div>
+            {% endfor %}
+        </div>
+        <p class="appt1">Upcoming Appointments</p>
+        <div class="appointments">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Doctor Name</th>
+                        <th>Dept</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if appointments %}
+                    {% for appt in appointments %}
+                    <tr>
+                        <td>{{ appt.id }}</td>
+                        <td>Dr. {{ appt.doctor_name }}</td>
+                        <td>{{ appt.dept }}</td>
+                        <td>{{ appt.date }}</td>
+                        <td>{{ appt.time }}</td>
+                        <td>
+                            <a href="/Patient_Dashboard/cancel_appointment?id={{ appt.id }}"
+                               onclick="return confirm('Cancel this appointment?');">
+                               Cancel
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="6" style="text-align:center; color:#777;">No upcoming appointments.</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

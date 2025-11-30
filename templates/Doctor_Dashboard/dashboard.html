@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href='/static/dashboard.css'>
+</head>
+
+<body>
+    <nav class="doctor-dash">
+        <p class="welcome">Welcome Dr. {{Doc_name}}</p>
+        <div class="logout">
+            <a href="/logout" class="lout">Log out</a>
+        </div>
+    </nav>
+    <div class="main">
+        <p class="up-app">Upcoming Appointments</p>
+        <div class="appointments">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Patient Name</th>
+                        <th>Doctor Name</th>
+                        <th>Department</th>
+                        <th>Patient History</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appt in appointments %}
+                    <tr>
+                        <td>{{ appt.sr_no }}</td>
+                        <td>{{ appt.patient_name }}</td>
+                        <td>{{ appt.doctor_name }}</td>
+                        <td>{{ appt.department }}</td>
+                        <td>
+                            <a href="/Doctor_Dashboard/update_pat.html?appointment_id={{ appt.sr_no }}"
+                                class="btn btn-update">Update</a>
+
+                        </td>
+                        <td>
+                            <a href="/Doctor_Dashboard/mark_completed?id={{ appt.sr_no }}" class="btn btn-complete"
+                                onclick="return confirm('Mark this appointment as completed?');">
+                                Mark as Completed
+                            </a>
+
+                            <a href="/Doctor_Dashboard/cancel_appointment?id={{ appt.sr_no }}" class="btn btn-cancel"
+                                onclick="return confirm('Are you sure you want to cancel this appointment?');">
+                                Cancel
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <p class="assign_pat">Assigned Patients</p>
+
+        <div class="patients">
+            {% if assigned_patients %}
+            {% for pat in assigned_patients %}
+            <div class="row">
+                <span class="name">{{ pat.username }}</span>
+                <div class="btn">
+                    <a href="/Doctor_Dashboard/view_patient.html?id={{ pat.id }}" class="btn btn-view">View</a>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p class="no-data">No patients assigned.</p>
+            {% endif %}
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
