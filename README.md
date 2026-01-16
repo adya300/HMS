@@ -83,8 +83,3 @@ SQL JOINs are used to fetch complete patient visit history and related records.
 - REST API implementation
 - Vue.js integration for dynamic frontend
 - UI/UX enhancements
-
----
-
-## 📌 Note
-This project was developed as a learning-focused application to strengthen backend and database fundamentals.
